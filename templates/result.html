@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Vehicle Density Results</title>
+  <style>
+    body{
+        background-color: #333;
+    }
+    h1{
+        color: #FFD700;
+        text-align: center;
+    }
+    h2{
+        color:chartreuse;
+        text-align: center;
+    }
+    pre{
+        color: white;
+        text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Traffic Light Status</h1>
+  {% for lane, time in traffic_light_data %}
+    <h2>{{ lane }}</h2>
+    <pre>
+      Traffic Light Status
+      {% if lane == 'lane-1' %}
+        Yellow for 3 sec.
+        Green for {{ time }} sec.
+        Yellow for 3 sec.
+        Back to RED.
+      {% elif lane == 'lane-2' %}
+        Remains RED.
+      {% elif lane == 'lane-3' %}
+        Remains RED.
+      {% else %}
+        Remains RED.
+      {% endif %}
+    </pre>
+  {% endfor %}
+</body>
+</html>
